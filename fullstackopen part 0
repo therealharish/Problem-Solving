@@ -1,0 +1,25 @@
+title New Note Creation
+
+browser -> server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note 
+browser -> server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+server --> browser: notes page
+browser -> server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server --> browser: main.css file
+browser -> server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+server --> browser: main.js file
+
+note over browser: 
+browser starts executing
+the main.js file which
+requests the json data from 
+server 
+end note 
+
+browser -> server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server--> browser: (Response Received) {"content":"New note","date":"2022-01-04"}
+
+note over browser:
+browser executes the event
+handler that renders the
+notes to display
+end note
