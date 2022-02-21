@@ -24,16 +24,24 @@ def equalStacks(h1, h2, h3):
     h1[i]=h1[i-1]+h1[i]
   for i in range(1,len(h2)):
     h2[i]=h2[i-1]+h2[i]
-  for i in range(1,len(h2)):
-    h2[i]=h2[i-1]+h2[i]
+  for i in range(1,len(h3)):
+    h3[i]=h3[i-1]+h3[i]
   h1.reverse()
   h2.reverse()
   h3.reverse()
-  mi=min(len(h1), len(h2), len(h3))
-  for _ in range(mi)
-   if(h1[_] in h2 and h1[_] in h3):
-    return h1[_]
-    break;
+  while(h1 and h2 and h3):
+    s=min(h1[0], h2[0], h3[0])
+    while(h1 and s<h1[0]):
+      h1.pop(0)
+    while(h2 and s<h2[0]):
+      h2.pop(0)
+    while(h3 and s<h3[0]):
+      h3.pop(0)
+    if(h1 and h2 and h3):
+      if(h1[0]== h2[0] and h1[0]== h3[0]):
+        return h1[0]
+    else:
+      break;
   return 0
       
     
