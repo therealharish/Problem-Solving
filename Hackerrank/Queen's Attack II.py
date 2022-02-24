@@ -1,138 +1,90 @@
-#!/bin/python3
-
-import math
-import os
-import random
-import re
-import sys
-
-#
-# Complete the 'queensAttack' function below.
-#
-# The function is expected to return an INTEGER.
-# The function accepts following parameters:
-#  1. INTEGER n
-#  2. INTEGER k
-#  3. INTEGER r_q
-#  4. INTEGER c_q
-#  5. 2D_INTEGER_ARRAY obstacles
-#
-
-def queensAttack(n, k, r_q, c_q, obstacles):
-  # count=0;
-  # # //check right
-  # i = r_q;
-  # j= c_q+1;
-  # for x in range(j, n+1):
-  #   if([i,x] in obstacles):
-  #     break;
-  #   else:
-  #     count+=1;
-  # # //check left
-  # i = r_q
-  # j=c_q-1
-  # for x in range (j, 0, -1):
-  #   if([i,x] in obstacles):
-  #     break;
-  #   else:
-  #     count+=1;
-  # #check above
-  # i=r_q-1;
-  # j=c_q;
-  # for x in range(i, 0, -1):
-  #   if([x,j] in obstacles):
-  #     break;
-  #   else:
-  #     count+=1;
-  # #check below
-  # i=r_q+1
-  # j=c_q
-  # for x in range(i, n+1):
-  #   if([x,j] in obstacles):
-  #     break;
-  #   else:
-  #     count+=1;
-  # #check north west
-  # i=r_q-1
-  # j=c_q-1;
-  # while(i>=1 and j>=1):
-  #   if([i,j]  in obstacles):
-  #     break;
-  #   else:
-  #     count+=1;
-  #   i-=1;
-  #   j-=1;
-  # #check north east
-  # i=r_q-1
-  # j=c_q+1;
-  # while(i>=1 and j<n+1):
-  #   if([i,j] in obstacles):
-  #     break;
-  #   else:
-  #     count+=1;
-  #   i-=1;
-  #   j+=1;
-  # #check south west
-  # i=r_q+1
-  # j=c_q-1;
-  # while(i<n+1 and j>=1):
-  #   if([i,j] in obstacles):
-  #     break;
-  #   else:
-  #     count+=1;
-  #   i+=1;
-  #   j-=1;
-  # #check south east
-  # i=r_q+1
-  # j=c_q+1;
-  # while(i<n+1 and j<n+1):
-  #   if([i,j] in obstacles):
-  #     break;
-  #   else:
-  #     count+=1;
-  #   i+=1;
-  #   j+=1;
-  # return count
-
-
-  count = 0;
-  r= n-c_q;
-  l= c_q-1;
-  u= n-r_q;
-  d= r_q-1;
-  dlu= min(u,l)
-  dru = min(u, r)
-  dld = min(l, d)
-  drd = min(r, d)
-  
-  
-
-  
+#include<stdio.h>
+int main()
+{
+    int r,l,u,d,dlu,dld,dru,drd,n,k,rq,cq,ro,co;
+    scanf("%d%d",&n,&k);
+    scanf("%d%d",&rq,&cq);
+    r=n-cq;
+    l=cq-1;
+    u=n-rq;
+    d=rq-1;
+    if(l<u)
+    dlu=l;
+    else {
+    dlu=u;
+    }
+    if(l<d)
+    dld=l;
+    else {
+    dld=d;
+    }
+    if(r<u)
+    dru=r;
+    else {
+    dru=u;
+    }
+    if(r<d)
+    drd=r;
+    else {
+    drd=d;
+    }
+    for(int i=1;i<=k;i++)
+    {
+        scanf("%d%d",&ro,&co);
+        if(cq>co&&rq==ro)
+        {
+            if(cq-co-1<l)
+            l=cq-co-1;
+        }
+        else if(cq<co&&rq==ro)
+        {
+            if(co-cq-1<r)
+            r=co-cq-1;
+        }
+        else if(rq>ro&&cq==co)
+        {
+            if(rq-ro-1<d)
+            d=rq-ro-1;
+        }
+        else if(rq<ro&&cq==co)
+        {
+            if(ro-rq-1<u)
+            u=ro-rq-1;
+        }
+        else if(co<cq&&ro>rq)
+        {
+            if(cq-co==ro-rq)
+            {
+                if(ro-rq-1<dlu)
+                dlu=ro-rq-1;
+            }
+        }
+        else if(co<cq&&ro<rq)
+        {
+            if(cq-co==rq-ro)
+            {
+                if(rq-ro-1<dld)
+                dld=rq-ro-1;
+            }
+        }
+        else if(co>cq&&rq>ro)
+        {
+            if(co-cq==rq-ro)
+            {
+                if(rq-ro-1<drd)
+                drd=rq-ro-1;
+            }
+        }
+        else if(ro>rq&&co>cq)
+        {
+            if(co-cq==ro-rq)
+            {
+                if(ro-rq-1<dru)
+                dru=ro-rq-1;
+            }
+        }
+    }
+    printf("%d",r+l+u+d+drd+dld+dru+dlu);
+    return 0;
     
-  
-
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
-
-    first_multiple_input = input().rstrip().split()
-
-    n = int(first_multiple_input[0])
-
-    k = int(first_multiple_input[1])
-
-    second_multiple_input = input().rstrip().split()
-
-    r_q = int(second_multiple_input[0])
-
-    c_q = int(second_multiple_input[1])
-
-    obstacles = []
-
-    for _ in range(k):
-        obstacles.append(list(map(int, input().rstrip().split())))
-
-    result = queensAttack(n, k, r_q, c_q, obstacles)
-
-    fptr.write(str(result) + '\n')
-
-    fptr.close()
+}
