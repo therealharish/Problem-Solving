@@ -14,11 +14,14 @@ import sys
 #
 
 def sansaXor(arr):
-    # Write your code here
+  result = arr[0]
   if(len(arr)%2==0):
     return 0
   else:
-    for i in range
+    for i in range(2, len(arr), 2 ):
+      result^=arr[i]
+    return result
+      
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
