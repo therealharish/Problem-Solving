@@ -20,9 +20,15 @@ def closestNumbers(arr):
   for i in range(1, len(arr)):
     a = arr[i]-arr[i-1]
     if(a<min):
+      l=[]
       min=a
-      l.append([arr[i-1], arr[i]])
-  return l.sort()
+      l.append(arr[i-1])
+      l.append(arr[i])
+    elif(a==min):
+      min=a
+      l.append(arr[i-1])
+      l.append(arr[i])
+  return l
     
     
   
