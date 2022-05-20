@@ -1,9 +1,13 @@
+https://medium.com/basecs/k%C3%B6nigsberg-seven-small-bridges-one-giant-graph-problem-2275d1670a12
+
+https://medium.com/basecs/demystifying-depth-first-search-a7c14cccf056
+
 t = int(input())
 for _ in range(t):
-  n = input()
-  x = int(n[0]) + int(n[1]) + int(n[2])
-  y = int(n[-1]) + int(n[-2]) + int(n[-3])
-  if(x==y):
-    print("YES")
-  else:
-    print("NO")
+  n = int(input())
+  arr = list(map(int, input().split()))
+  m = min(arr)
+  count=0
+  for i in arr:
+    count+=(i-m)
+  print(count)
