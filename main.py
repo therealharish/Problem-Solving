@@ -1,13 +1,15 @@
-https://medium.com/basecs/k%C3%B6nigsberg-seven-small-bridges-one-giant-graph-problem-2275d1670a12
-
-https://medium.com/basecs/demystifying-depth-first-search-a7c14cccf056
-
-t = int(input())
-for _ in range(t):
-  n = int(input())
-  arr = list(map(int, input().split()))
-  m = min(arr)
-  count=0
-  for i in arr:
-    count+=(i-m)
-  print(count)
+s = "ABCDDCEFFEBGAG"
+l = []
+d = {}
+c=3
+count = 0
+for i in s:
+  print(l)
+  if i in l:
+    l.remove(i)
+  else:
+    if(len(l)==c):
+      d[i] = 0
+    else:
+      l.append(i)
+print(len(d))
