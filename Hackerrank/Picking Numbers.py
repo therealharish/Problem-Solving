@@ -14,14 +14,15 @@ import sys
 #
 
 def pickingNumbers(a):
-  l=[]
-  for i in range(1,len(a)):
-    if(i==0):
-      if(abs(a[i]-a[i+1])<=1):
-        l.append(a[i])
-    if(abs(a[i]-a[i-1])<=1):
-      l.append(a[i])    
-  print(l)
+  m = 0
+  for i in a:
+    c = a.count(i)
+    d = a.count(i-1)
+    c+=d
+    if(m < c):
+      m=c
+  return m
+    
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')

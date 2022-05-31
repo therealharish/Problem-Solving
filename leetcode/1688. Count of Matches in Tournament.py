@@ -1,9 +1,12 @@
 class Solution:
     def numberOfMatches(self, n: int) -> int:
-      count = 0;
-      o=n;
-      while (n>0):
-        n=n//2
-        count+=o-n
-        o=n
-      return count
+      matches = 0
+      while(n):
+        if(n%2) == 0:
+          matches+= n//2
+          n = n//2
+        else:
+          matches = (n-1)//2
+          n = (n-1)//2 + 1
+      return matches
+        
