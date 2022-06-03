@@ -15,6 +15,14 @@
         "version": 378,
         "index": 1266
       }
+    ],
+    "main.py": [
+      {
+        "id": "b3c4582f-8f4e-4a1b-9ecb-009af34bac3d",
+        "line": 1,
+        "version": 27560,
+        "index": 0
+      }
     ]
   }
 }

@@ -1,15 +1,21 @@
-s = "ABCDDCEFFEBGAG"
-l = []
-d = {}
-c=3
-count = 0
-for i in s:
-  print(l)
-  if i in l:
-    l.remove(i)
-  else:
-    if(len(l)==c):
-      d[i] = 0
-    else:
-      l.append(i)
-print(len(d))
+class Mobile:
+  def __init__(self, mobile, batt):
+    self.mobile = mobile
+    self.battery = batt
+
+  def getMobile(self):
+    print("Mobile: ", self.mobile)
+    self.battery.getmah()
+    
+
+class Battery:
+  def __init__(self, mah):
+    self.mah = mah
+
+  def getmah(self):
+    print("Battery mAH: ", self.mah)
+    
+
+batt = Battery(5000)
+mob = Mobile("Samsung", batt)
+mob.getMobile()
