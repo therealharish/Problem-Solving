@@ -1,21 +1,29 @@
-class Mobile:
-  def __init__(self, mobile, batt):
-    self.mobile = mobile
-    self.battery = batt
+# https://www.geeksforgeeks.org/print-all-subarrays-with-0-sum/
 
-  def getMobile(self):
-    print("Mobile: ", self.mobile)
-    self.battery.getmah()
+l = [0,0,5,5,0,0]
+l = [6,-1,-3,4,-2,2,4,6,-12,-7]
+
+d = {}
+count = 0
+s=0
+out  = []
+for i in range(len(l)):
+  s+=l[i]
+  if s == 0:
+    out.append(l[0:i+1])
+  if s in d:
+    print(d)
+    a = d[s]
+    print(a)
+    out.append(l[a+1: i+1])
+  
+  d[s] = i
     
 
-class Battery:
-  def __init__(self, mah):
-    self.mah = mah
-
-  def getmah(self):
-    print("Battery mAH: ", self.mah)
+print(out)
     
+  
 
-batt = Battery(5000)
-mob = Mobile("Samsung", batt)
-mob.getMobile()
+
+
+  

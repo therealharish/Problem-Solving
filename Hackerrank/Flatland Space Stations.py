@@ -8,11 +8,13 @@ import sys
 
 # Complete the flatlandSpaceStations function below.
 def flatlandSpaceStations(n, c):
-  li=[]
-  for i in range(n):
-    l = tuple(map(lambda x: abs(x-i), c))
-    li.append(min(l))
-  return max(li)
+  
+  l = [i for i in range(n)]
+  def check():
+    do = l[0]
+    for i in range(1, len(l)):
+      
+      
     
 
 if __name__ == '__main__':
