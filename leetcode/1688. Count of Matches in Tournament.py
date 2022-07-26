@@ -9,4 +9,5 @@ class Solution:
           matches = (n-1)//2
           n = (n-1)//2 + 1
       return matches
-        
+
+
