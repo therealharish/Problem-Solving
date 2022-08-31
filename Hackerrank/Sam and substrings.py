@@ -20,7 +20,7 @@ def substrings(n):
   for i in range(1,len(n)):
     s = (10 * dp[i-1] + int(n[i])*(i+1))%mod
     dp.append(s)
-  return sum(dp)
+  return sum(dp)%mod
     
     
 

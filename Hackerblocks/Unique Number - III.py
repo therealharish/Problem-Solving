@@ -1,3 +1,6 @@
+#not completed due to some reason
+
+
 def uniquenumbers3(arr):
 	l = [0 for i in range(65)]
 	for i in range(len(arr)):
