@@ -16,11 +16,9 @@ import sys
 #
 
 def largestPermutation(k, arr):
-  rev=[]
-  for i in range(len(arr), 0, -1):
-    rev.append(i)
-  pos=0
+  rev=sorted(arr, reverse=True)
   i=0;
+  pos = 0
   while(i<len(arr) and k):
     x=rev[pos]
     index = arr.index(x)
