@@ -7,8 +7,6 @@
 #             dp[i] = max(1+dp[j], dp[i])
 #       return max(dp)
 
-
-
 # in notes 1 page 3
 # class Solution:
 #     def lengthOfLIS(self, nums: List[int]) -> int:
@@ -24,6 +22,29 @@
 #       return ans
 
 
+# in notes 1  pg 5 method 2
+class Solution:
+	def lengthOfLIS(self, nums: List[int]) -> int:
+		ans = []
 
+		def binarysearch(low, high, target):
+			mid = (low + high) // 2
+			if (low >= high):
+				return low
+			if (ans[mid] == target):
+				return mid
+			elif (ans[mid] > target):
+				binarysearch(low, mid - 1)
+			else:
+				binarysearch(mid, high)
 
-# in notes 
+		for i in nums:
+			if (len(ans) == 0):
+				ans.append(i)
+			else:
+				if (i > ans[-1]):
+					ans.append(i)
+				else:
+					pos = binarysearch(0, len(arr) - 1, i)
+					ans[pos] = i
+		return len(ans)
