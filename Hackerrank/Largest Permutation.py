@@ -19,10 +19,14 @@ def largestPermutation(k, arr):
   rev=sorted(arr, reverse=True)
   i=0;
   pos = 0
+  d = {}
+  for j in range(len(arr)):
+    d[arr[j]]=j
   while(i<len(arr) and k):
     x=rev[pos]
-    index = arr.index(x)
+    index = d[x]
     if(arr[i]<x):
+      d[arr[index]], d[arr[i]] = d[arr[i]], d[arr[index]]
       arr[index], arr[i]=arr[i], arr[index]
       k-=1;
     i+=1
