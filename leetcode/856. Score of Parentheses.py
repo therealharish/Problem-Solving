@@ -1,3 +1,4 @@
+# in notes 1 pg 70
 class Solutions:
     def scoreOfParentheses(self, s: str) -> int:
         s = "("+s+")"
