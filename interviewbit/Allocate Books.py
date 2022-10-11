@@ -12,8 +12,8 @@ class Solution:
 			count = 1
             
 			for i in range(len(A)):
-                if(bar<A[i]):
-                    return float('inf')
+        if(bar<A[i]):
+            return float('inf')
 				
                 if(s+A[i]<=bar):
 					s+=A[i]

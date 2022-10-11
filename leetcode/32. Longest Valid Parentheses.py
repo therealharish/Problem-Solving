@@ -1,5 +1,3 @@
-#in notes 1 pg 77
-
 class Solution:
     def longestValidParentheses(self, s: str) -> int:
       st=[-1]
