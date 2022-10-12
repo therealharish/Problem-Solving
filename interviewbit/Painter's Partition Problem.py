@@ -1,9 +1,9 @@
 class Solution:
-	# @param A : list of integers
+	# @param A : integer
 	# @param B : integer
+	# @param C : list of integers
 	# @return an integer
-	def books(self, A, B):
-        
+  def paint(self, A, B, C):
         if(len(A)<B):
             return -1
         
