@@ -1,21 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#define MIN 1
+#define MAX n
 
-def asteroidCollision(strength, direction):
-    s = []
-    take = []
-    for i in range(len(strength)):
-      take.append(strength[i]*direction[i])
-    for i in range(len(take)):
-        a = take[i]
-        while s and s[-1] > 0 and a < 0:
-            if s[-1] + a < 0: s.pop()
-            elif s[-1] + a > 0: break    
-            else: s.pop(); break
-        else: s.append(i)        
-    return s  
+int linearSearch(int arr[], int n, int val) {
+  for (int i=0; i<n; i++) {
+    if(arr[i]==val)
+      return i;
+  }
+  return -1;
+}
 
-strength=  [5, 10, 5]
-direction = [1, 1, -1]
-strength=  [8,8]
-direction = [1, -1]
-ans = asteroidCollision(strength,direction)
-print(ans)
+int main() {
+  time_t start;
+  start = time(NULL);
+  int n;
+  printf("\nEnter size: ");
+  scanf("%d", &n);
+  int *arr = (int *) malloc (n * sizeof(int));
+  for(int i=0; i<n; i++) {
+    arr[i] = (rand() % (MAX - MIN + 1)) + MIN;
+  }
+  int val = (rand() % (MAX - MIN + 1)) + MIN;
+  int index = linearSearch(arr, n, val);
+  printf("\nArray: \n");
+  for(int i=0; i<n; i++) {
+  	printf("%d ", arr[i]);
+  }
+  printf("\nElement to search: %d", val);
+  if(index == -1) {
+    printf("\nElement %d not found in the array.", val);
+  }
+  else {
+    printf("\nElement %d is present at index %d.", val, index);
+  }
+  time_t stop = time(NULL);
+  printf("\nTime taken: %d", stop-start);
+}
