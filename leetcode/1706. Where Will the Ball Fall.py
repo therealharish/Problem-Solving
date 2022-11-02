@@ -3,22 +3,16 @@ class Solution:
 
       def dfs(r, c):
 
-        if(r==len(grid)-1):
+        if(r >= len(grid)):
           return c
-        elif(c==len(grid[0])-1 and grid[r][c] == 1):
-          return -1
-        elif(c==0 and grid[r][c] == -1):
-          return -1
-        elif(grid[r][c]!=grid[r][c+1]):
-          return -1
-          
-        elif(r>len(grid) or c>len(grid[0]) or r<0 or c<1):
+        if(c<len(grid)-1 and grid[r][c]==1 and grid[r][c+1]==1):
+          return dfs(r+1, c+1)
+        if(c>0 and grid[r][c]==-1 and grid[r][c-1]==-1):
+          return dfs(r+1, c-1)
+        if(c>=len(grid[0])-1 and grid[r][c] == 1):
           return -1
         else:
-          if(grid[r][c]==1):
-            return dfs(r+1, c+1)
-          else:
-            return dfs(r-1. c-1)
+          return -1
 
       ans = []
       for c in range(len(grid[0])):
