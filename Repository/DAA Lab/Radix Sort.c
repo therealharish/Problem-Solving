@@ -38,7 +38,7 @@ void countingSort(int arr[], int size, int place) {
     arr[i] = out[i];
 }
 
-void radixsort(int arr[], int size) {
+void radixSort(int arr[], int size) {
   int max = getMax(arr, size);
   for (int place = 1; max / place > 0; place *= 10)
     countingSort(arr, size, place);
@@ -46,7 +46,7 @@ void radixsort(int arr[], int size) {
  
 
 int main() {
-  srand(time(0))
+  srand(time(0));
   time_t start = time(NULL);
   
   int n;
@@ -60,7 +60,7 @@ int main() {
   for(int i=0; i<n; i++) {
   	printf("%d ", arr[i]);
   }
-  countingSort(arr,n);
+  radixSort(arr,n);
   printf("\nSorted arr: \n");
   for(int i=0; i<n; i++) {
   	printf("%d ", arr[i]);
