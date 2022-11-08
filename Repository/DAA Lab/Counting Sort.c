@@ -33,7 +33,7 @@ void countingSort(int arr[], int size) {
  
 
 int main() {
-  srand(time(0))
+  srand(time(0));
   time_t start = time(NULL);
   
   int n;
