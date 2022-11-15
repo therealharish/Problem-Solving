@@ -15,7 +15,7 @@ import sys
 #  2. INTEGER_ARRAY arr
 #
 
-def pylons(k, arr):
+def pylons1(k, arr):
     i=0;
     count=0;
     while i<len(arr):
@@ -29,9 +29,27 @@ def pylons(k, arr):
       if(flag):
         return -1
     return count
+
+def pylons(k, arr):
+    i = 0
+    j = k-1
+    count  = 0 
+    poss=0
+    while(poss<len(arr)-1):
+        if(j>=len(arr)):
+            j = len(arr)-1
+        while(arr[j]!=1 and j>i):
+            j-=1
+        if(arr[j]==1):
+            count+=1
+            poss=k+j-1
+            i = j + 1
+            j = j + 2*k -1
+        else:
+            return -1
         
-            
-       
+        # print(i, j, poss)
+    return count
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
@@ -49,3 +67,5 @@ if __name__ == '__main__':
     fptr.write(str(result) + '\n')
 
     fptr.close()
+
+    
