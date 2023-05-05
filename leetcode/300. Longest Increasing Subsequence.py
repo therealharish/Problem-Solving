@@ -24,27 +24,24 @@
 
 # in notes 1  pg 5 method 2
 class Solution:
-	def lengthOfLIS(self, nums: List[int]) -> int:
-		ans = []
-
-		def binarysearch(low, high, target):
-			mid = (low + high) // 2
-			if (low >= high):
-				return low
-			if (ans[mid] == target):
-				return mid
-			elif (ans[mid] > target):
-				binarysearch(low, mid - 1)
-			else:
-				binarysearch(mid, high)
-
-		for i in nums:
-			if (len(ans) == 0):
-				ans.append(i)
-			else:
-				if (i > ans[-1]):
-					ans.append(i)
-				else:
-					pos = binarysearch(0, len(arr) - 1, i)
-					ans[pos] = i
-		return len(ans)
+    def lengthOfLIS(self, nums: List[int]) -> int:
+        
+        def f1(n):
+            if n == 1:
+                return 1
+            if n == 0:
+                return 0
+            return max(f1(n-1), 1+f2(n-1, nums[n-1]))
+        
+        @cache
+        def f2(n, prev):
+            if n == 0:
+                return 0
+            if nums[n-1] < prev:
+                return max(f2(n-1, prev), 1+f2(n-1, nums[n-1]))
+            else:
+                return f2(n-1, prev)
+            
+        return f1(len(nums))
+            
+        
