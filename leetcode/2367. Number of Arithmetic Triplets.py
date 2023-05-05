@@ -1,0 +1,10 @@
+# brutoforce
+class Solution:
+    def arithmeticTriplets(self, nums: List[int], diff: int) -> int:
+      count = 0
+      for i in range(len(nums)-2):
+        for j in range(len(nums)-1):
+          for k in range(len(nums)):
+            if(nums[j]-nums[i]==diff and nums[k]-nums[j]==diff):
+              count+=1
+      return count
