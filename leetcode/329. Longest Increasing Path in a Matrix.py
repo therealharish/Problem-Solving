@@ -2,6 +2,7 @@ class Solution:
     def longestIncreasingPath(self, matrix: List[List[int]]) -> int:
         
         row, col = len(matrix), len(matrix[0])
+        
         direction = [(0, 1), (0, -1), (1, 0), (-1, 0)]
         
         dp = {}
