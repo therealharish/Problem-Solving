@@ -11,8 +11,7 @@ class BSTIterator:
             self.stack.append(root)
             root = root.left
     
-    def __init__(self, root: Optional[TreeNode]):
-      
+    def __init__(self, root: Optional[TreeNode]):      
       self.stack = []
       self.pushStack(root)
 
