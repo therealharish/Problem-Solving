@@ -23,3 +23,6 @@ class Solution:
             pointer.next = ListNode(carry)
             pointer = pointer.next
         return ans.next
+    
+    def 
+    
