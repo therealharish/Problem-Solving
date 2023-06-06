@@ -33,16 +33,18 @@ def countmin(arr, temp, h):
 def lilysHomework(arr):
   ans = []
   temp = arr.copy()
+  arrone = arr.copy()
   temp.sort()
   h = {}
   for i in range(n):
       h[arr[i]] = i
   ans.append(countmin(arr, temp, h))
-  temp = arr.copy()
+  temp = arrone.copy()
   temp.sort(reverse = True)
+  h={}
   for i in range(n):
-      h[arr[i]] = i
-  ans.append(countmin(arr, temp, h))
+      h[arrone[i]] = i
+  ans.append(countmin(arrone, temp, h))
   return min(ans)
   
     
