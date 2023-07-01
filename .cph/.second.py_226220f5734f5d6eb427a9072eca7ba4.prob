@@ -1,0 +1,1 @@
+{"name":"Local: second","url":"f:\\Documents\\Problem-Solving\\second.py","tests":[{"id":1688140406877,"input":"3\n4\n1 3 4 5\n7 2 3 4\n1 3 2 1","output":"1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\Documents\\Problem-Solving\\second.py","group":"local","local":true}
