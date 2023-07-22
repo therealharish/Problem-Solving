@@ -1,0 +1,1 @@
+{"name":"Local: ques cycle","url":"f:\\Documents\\Problem-Solving\\ques cycle.py","tests":[{"id":1689753793276,"input":"7\n1 5 1 4 7 6 4","output":"0"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\Documents\\Problem-Solving\\ques cycle.py","group":"local","local":true}
